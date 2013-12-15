@@ -36,21 +36,15 @@
 }
 
 - (IBAction)makeHTTPRequest:(id)sender {
-    NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:12345"]];
+    NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:12345/json"]];
     [getRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [getRequest setHTTPMethod:@"GET"];
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:getRequest delegate:self];
-    if(conn) {
-        NSLog(@"good");
-    }
-    else {
-        NSLog(@"bad");
-    }
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSString *myString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    [self.dataLabel setText:myString];
+    NSError *err1;
+    NSError *err2;
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:getRequest returningResponse:nil error:&err1];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingMutableContainers error:&err2];
+    NSLog(@"%@", [jsonDictionary valueForKey:@"message"]);
+    
 }
 
 @end
