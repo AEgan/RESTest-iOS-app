@@ -35,4 +35,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)makeHTTPRequest:(id)sender {
+    NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:12345"]];
+    [getRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [getRequest setHTTPMethod:@"GET"];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:getRequest delegate:self];
+    if(conn) {
+        NSLog(@"good");
+    }
+    else {
+        NSLog(@"bad");
+    }
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSString *myString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    [self.dataLabel setText:myString];
+}
+
 @end

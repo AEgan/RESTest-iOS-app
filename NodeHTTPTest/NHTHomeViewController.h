@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NHTHomeViewController : UIViewController
+@interface NHTHomeViewController : UIViewController <NSURLConnectionDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *makeCallButton;
+- (IBAction)makeHTTPRequest:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *dataLabel;
 
 @end
