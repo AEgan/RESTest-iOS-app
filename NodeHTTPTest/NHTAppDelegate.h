@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NHTHomeViewController.h"
 
 @interface NHTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) NHTHomeViewController *homeViewController;
 
 @end

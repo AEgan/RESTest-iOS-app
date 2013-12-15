@@ -16,6 +16,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    self.homeViewController = [[NHTHomeViewController alloc] initWithNibName:@"NHTHomeViewController" bundle:nil];
+    [self.window setRootViewController:self.homeViewController];
     return YES;
 }
 

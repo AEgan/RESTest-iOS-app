@@ -19,6 +19,8 @@
 		FA10FA28185D78D9003CD461 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA10FA10185D78D9003CD461 /* UIKit.framework */; };
 		FA10FA30185D78D9003CD461 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA10FA2E185D78D9003CD461 /* InfoPlist.strings */; };
 		FA10FA32185D78D9003CD461 /* NodeHTTPTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA31185D78D9003CD461 /* NodeHTTPTestTests.m */; };
+		FA10FA3E185D7AF0003CD461 /* NHTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */; };
+		FA10FA3F185D7AF0003CD461 /* NHTHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		FA10FA2D185D78D9003CD461 /* NodeHTTPTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NodeHTTPTestTests-Info.plist"; sourceTree = "<group>"; };
 		FA10FA2F185D78D9003CD461 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA10FA31185D78D9003CD461 /* NodeHTTPTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeHTTPTestTests.m; sourceTree = "<group>"; };
+		FA10FA3B185D7AF0003CD461 /* NHTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHTHomeViewController.h; sourceTree = "<group>"; };
+		FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHTHomeViewController.m; sourceTree = "<group>"; };
+		FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHTHomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				FA10FA1B185D78D9003CD461 /* NHTAppDelegate.h */,
+				FA10FA3B185D7AF0003CD461 /* NHTHomeViewController.h */,
+				FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */,
+				FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */,
 				FA10FA1C185D78D9003CD461 /* NHTAppDelegate.m */,
 				FA10FA1E185D78D9003CD461 /* Images.xcassets */,
 				FA10FA13185D78D9003CD461 /* Supporting Files */,
@@ -221,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA10FA17185D78D9003CD461 /* InfoPlist.strings in Resources */,
+				FA10FA3F185D7AF0003CD461 /* NHTHomeViewController.xib in Resources */,
 				FA10FA1F185D78D9003CD461 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA10FA19185D78D9003CD461 /* main.m in Sources */,
+				FA10FA3E185D7AF0003CD461 /* NHTHomeViewController.m in Sources */,
 				FA10FA1D185D78D9003CD461 /* NHTAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
