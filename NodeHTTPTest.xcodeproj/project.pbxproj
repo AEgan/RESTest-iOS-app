@@ -21,6 +21,8 @@
 		FA10FA32185D78D9003CD461 /* NodeHTTPTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA31185D78D9003CD461 /* NodeHTTPTestTests.m */; };
 		FA10FA3E185D7AF0003CD461 /* NHTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */; };
 		FA10FA3F185D7AF0003CD461 /* NHTHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */; };
+		FA10FA43185ECA83003CD461 /* NHTMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA41185ECA83003CD461 /* NHTMessageViewController.m */; };
+		FA10FA44185ECA83003CD461 /* NHTMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA10FA42185ECA83003CD461 /* NHTMessageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		FA10FA3B185D7AF0003CD461 /* NHTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHTHomeViewController.h; sourceTree = "<group>"; };
 		FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHTHomeViewController.m; sourceTree = "<group>"; };
 		FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHTHomeViewController.xib; sourceTree = "<group>"; };
+		FA10FA40185ECA83003CD461 /* NHTMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHTMessageViewController.h; sourceTree = "<group>"; };
+		FA10FA41185ECA83003CD461 /* NHTMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHTMessageViewController.m; sourceTree = "<group>"; };
+		FA10FA42185ECA83003CD461 /* NHTMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHTMessageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +120,9 @@
 				FA10FA1B185D78D9003CD461 /* NHTAppDelegate.h */,
 				FA10FA3B185D7AF0003CD461 /* NHTHomeViewController.h */,
 				FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */,
+				FA10FA40185ECA83003CD461 /* NHTMessageViewController.h */,
+				FA10FA41185ECA83003CD461 /* NHTMessageViewController.m */,
+				FA10FA42185ECA83003CD461 /* NHTMessageViewController.xib */,
 				FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */,
 				FA10FA1C185D78D9003CD461 /* NHTAppDelegate.m */,
 				FA10FA1E185D78D9003CD461 /* Images.xcassets */,
@@ -231,6 +239,7 @@
 				FA10FA17185D78D9003CD461 /* InfoPlist.strings in Resources */,
 				FA10FA3F185D7AF0003CD461 /* NHTHomeViewController.xib in Resources */,
 				FA10FA1F185D78D9003CD461 /* Images.xcassets in Resources */,
+				FA10FA44185ECA83003CD461 /* NHTMessageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +261,7 @@
 				FA10FA19185D78D9003CD461 /* main.m in Sources */,
 				FA10FA3E185D7AF0003CD461 /* NHTHomeViewController.m in Sources */,
 				FA10FA1D185D78D9003CD461 /* NHTAppDelegate.m in Sources */,
+				FA10FA43185ECA83003CD461 /* NHTMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

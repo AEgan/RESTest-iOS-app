@@ -7,6 +7,7 @@
 //
 
 #import "NHTHomeViewController.h"
+#import "NHTMessageViewController.h"
 
 @interface NHTHomeViewController ()
 
@@ -20,6 +21,8 @@
     if (self) {
         // Custom initialization
     }
+    UIBarButtonItem *newMessageItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
+    [self.navigationItem setRightBarButtonItem:newMessageItem];
     return self;
 }
 
@@ -65,6 +68,11 @@
         }
     }
     
+}
+
+-(IBAction)pushMessageController:(id)sender {
+    NHTMessageViewController *messageView = [[NHTMessageViewController alloc] initWithNibName:@"NHTMessageViewController" bundle:nil];
+    [self.navigationController pushViewController:messageView animated:YES];
 }
 
 @end

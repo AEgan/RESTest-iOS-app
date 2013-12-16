@@ -11,6 +11,7 @@
 @interface NHTHomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *makeCallButton;
 - (IBAction)makeHTTPRequest:(id)sender;
+-(IBAction)pushMessageController:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *dataLabel;
 
 @end
