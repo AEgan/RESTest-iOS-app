@@ -39,9 +39,18 @@
 }
 
 - (IBAction)putRequest:(id)sender {
-    NSString *postString = [NSString stringWithFormat:@"%@ says %@", [self.authorField text], [self.messageTextView text]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post" message:postString delegate:nil cancelButtonTitle:@"cancelButtonTitle" otherButtonTitles:nil];
-    [alert show];
+    NSString *authorString = [self.authorField text];
+    NSString *messageString = [self.messageTextView text];
+    NSString *url = [NSString stringWithFormat:@"http://localhost:12345/put?author=%@&message=%@", authorString, messageString];
+    NSURL *fullURL = [NSURL URLWithString:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullURL];
+    [request setHTTPMethod:@"PUT"];
+    NSError *err;
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err];
+    if(err) {
+        UIAlertView *err1Alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error connecting to server, check that it's running pls" delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil];
+        [err1Alert show];
+    }
 }
 
 -(void)dismissKeyboard {
