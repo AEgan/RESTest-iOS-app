@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) NHTHomeViewController *homeViewController;
+@property (strong, nonatomic) UINavigationController *navigationController;
 
 @end
