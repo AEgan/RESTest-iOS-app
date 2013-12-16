@@ -35,6 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+ * Makes an HTTP get request to my node server and displays the response message in
+ * the label on the view. Make sure server is running or you get a rude error message.
+ */
 - (IBAction)makeHTTPRequest:(id)sender {
     NSMutableURLRequest *getRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:12345/json"]];
     [getRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -42,8 +46,23 @@
     NSError *err1;
     NSError *err2;
     NSData *returnData = [NSURLConnection sendSynchronousRequest:getRequest returningResponse:nil error:&err1];
-    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingMutableContainers error:&err2];
-    NSLog(@"%@", [jsonDictionary valueForKey:@"message"]);
+    if(err1) {
+        //deal with not getting a response
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to the server. Make sure it is turned on you idiot" delegate:nil cancelButtonTitle:@"oops lol" otherButtonTitles:nil];
+        [alert show];
+    }
+    else {
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingMutableContainers error:&err2];
+        if(err2) {
+            // deal with json parsing issues I suppose
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error with the json parsing I think. No idea what to do here lol gl" delegate:nil cancelButtonTitle:@"oops lol" otherButtonTitles:nil];
+            [alert show];
+        }
+        else {
+            // update the label
+            [self.dataLabel setText:[jsonDictionary valueForKey:@"message"]];
+        }
+    }
     
 }
 
