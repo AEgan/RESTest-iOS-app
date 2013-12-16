@@ -51,6 +51,17 @@
         UIAlertView *err1Alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error connecting to server, check that it's running pls" delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil];
         [err1Alert show];
     }
+    else {
+        NSError *err2;
+        NSDictionary *jsonDictonary = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingAllowFragments error:&err2];
+        if(err2) {
+            UIAlertView *jsonAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Some JSON error lol god damn it" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [jsonAlert show];
+        }
+        else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
 }
 
 -(void)dismissKeyboard {
