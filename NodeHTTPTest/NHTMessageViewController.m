@@ -41,7 +41,8 @@
 - (IBAction)putRequest:(id)sender {
     NSString *authorString = [self.authorField text];
     NSString *messageString = [self.messageTextView text];
-    NSString *url = [NSString stringWithFormat:@"http://localhost:12345/put?author=%@&message=%@", authorString, messageString];
+    NSString *fixedStr = [messageString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *url = [NSString stringWithFormat:@"http://localhost:12345/put?author=%@&message=%@", authorString, fixedStr];
     NSURL *fullURL = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullURL];
     [request setHTTPMethod:@"PUT"];
