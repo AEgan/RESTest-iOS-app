@@ -32,6 +32,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = @"Messages";
+    UIBarButtonItem *newMessageItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
+    [self.navigationItem setRightBarButtonItem:newMessageItem];
     self.dataArray = [[NSMutableArray alloc] initWithCapacity:4];
     [self.dataArray insertObject:@"San Fransisco" atIndex:0];
     [self.dataArray insertObject:@"Los Angeles" atIndex:1];
@@ -43,6 +46,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)pushMessageController:(id)sender {
+    NHTMessageViewController *messageView = [[NHTMessageViewController alloc] initWithNibName:@"NHTMessageViewController" bundle:nil];
+    [self.navigationController pushViewController:messageView animated:YES];
 }
 
 #pragma mark - Table view data source

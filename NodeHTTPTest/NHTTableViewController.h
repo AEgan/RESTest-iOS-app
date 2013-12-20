@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NHTMessageViewController.h"
 
 @interface NHTTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
+
+-(IBAction)pushMessageController:(id)sender;
 
 @end
