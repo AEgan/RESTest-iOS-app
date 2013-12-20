@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NHTHomeViewController.h"
+#import "NHTTableViewController.h"
 
 @interface NHTAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -23,6 +23,8 @@
 		FA10FA3F185D7AF0003CD461 /* NHTHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA10FA3D185D7AF0003CD461 /* NHTHomeViewController.xib */; };
 		FA10FA43185ECA83003CD461 /* NHTMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA41185ECA83003CD461 /* NHTMessageViewController.m */; };
 		FA10FA44185ECA83003CD461 /* NHTMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA10FA42185ECA83003CD461 /* NHTMessageViewController.xib */; };
+		FA15A7191863F69300720E70 /* NHTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA15A7171863F69300720E70 /* NHTTableViewController.m */; };
+		FA15A71A1863F69300720E70 /* NHTTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15A7181863F69300720E70 /* NHTTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		FA10FA40185ECA83003CD461 /* NHTMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHTMessageViewController.h; sourceTree = "<group>"; };
 		FA10FA41185ECA83003CD461 /* NHTMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHTMessageViewController.m; sourceTree = "<group>"; };
 		FA10FA42185ECA83003CD461 /* NHTMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHTMessageViewController.xib; sourceTree = "<group>"; };
+		FA15A7161863F69300720E70 /* NHTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHTTableViewController.h; sourceTree = "<group>"; };
+		FA15A7171863F69300720E70 /* NHTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHTTableViewController.m; sourceTree = "<group>"; };
+		FA15A7181863F69300720E70 /* NHTTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHTTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +125,9 @@
 				FA10FA1B185D78D9003CD461 /* NHTAppDelegate.h */,
 				FA10FA3B185D7AF0003CD461 /* NHTHomeViewController.h */,
 				FA10FA3C185D7AF0003CD461 /* NHTHomeViewController.m */,
+				FA15A7161863F69300720E70 /* NHTTableViewController.h */,
+				FA15A7171863F69300720E70 /* NHTTableViewController.m */,
+				FA15A7181863F69300720E70 /* NHTTableViewController.xib */,
 				FA10FA40185ECA83003CD461 /* NHTMessageViewController.h */,
 				FA10FA41185ECA83003CD461 /* NHTMessageViewController.m */,
 				FA10FA42185ECA83003CD461 /* NHTMessageViewController.xib */,
@@ -237,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA10FA17185D78D9003CD461 /* InfoPlist.strings in Resources */,
+				FA15A71A1863F69300720E70 /* NHTTableViewController.xib in Resources */,
 				FA10FA3F185D7AF0003CD461 /* NHTHomeViewController.xib in Resources */,
 				FA10FA1F185D78D9003CD461 /* Images.xcassets in Resources */,
 				FA10FA44185ECA83003CD461 /* NHTMessageViewController.xib in Resources */,
@@ -259,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA10FA19185D78D9003CD461 /* main.m in Sources */,
+				FA15A7191863F69300720E70 /* NHTTableViewController.m in Sources */,
 				FA10FA3E185D7AF0003CD461 /* NHTHomeViewController.m in Sources */,
 				FA10FA1D185D78D9003CD461 /* NHTAppDelegate.m in Sources */,
 				FA10FA43185ECA83003CD461 /* NHTMessageViewController.m in Sources */,
@@ -462,6 +472,7 @@
 				FA10FA37185D78D9003CD461 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA10FA38185D78D9003CD461 /* Build configuration list for PBXNativeTarget "NodeHTTPTestTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +481,7 @@
 				FA10FA3A185D78D9003CD461 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
