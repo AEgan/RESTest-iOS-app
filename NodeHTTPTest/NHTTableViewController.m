@@ -27,6 +27,19 @@
         [self.dataArray insertObject:@"Los Angeles" atIndex:1];
         [self.dataArray insertObject:@"San Diego" atIndex:2];
         [self.dataArray insertObject:@"San Jose" atIndex:3];
+        NSString *urlStr = @"http://localhost:12345/list";
+        NSURL *url = [NSURL URLWithString:urlStr];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"GET"];
+        NSError *err1;
+        NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
+        if(err1) {
+            UIAlertView *connectionErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error connecting to the server. Make sure it's running" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [connectionErrorAlertView show];
+        }
+        else {
+        }
     }
     return self;
 }
