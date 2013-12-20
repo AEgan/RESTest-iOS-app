@@ -19,6 +19,14 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title = @"Messages";
+        UIBarButtonItem *newMessageItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
+        [self.navigationItem setRightBarButtonItem:newMessageItem];
+        self.dataArray = [[NSMutableArray alloc] initWithCapacity:4];
+        [self.dataArray insertObject:@"San Fransisco" atIndex:0];
+        [self.dataArray insertObject:@"Los Angeles" atIndex:1];
+        [self.dataArray insertObject:@"San Diego" atIndex:2];
+        [self.dataArray insertObject:@"San Jose" atIndex:3];
     }
     return self;
 }
@@ -32,14 +40,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.title = @"Messages";
-    UIBarButtonItem *newMessageItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
-    [self.navigationItem setRightBarButtonItem:newMessageItem];
-    self.dataArray = [[NSMutableArray alloc] initWithCapacity:4];
-    [self.dataArray insertObject:@"San Fransisco" atIndex:0];
-    [self.dataArray insertObject:@"Los Angeles" atIndex:1];
-    [self.dataArray insertObject:@"San Diego" atIndex:2];
-    [self.dataArray insertObject:@"San Jose" atIndex:3];
 }
 
 - (void)didReceiveMemoryWarning
