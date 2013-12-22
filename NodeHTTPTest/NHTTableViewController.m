@@ -39,6 +39,17 @@
             [connectionErrorAlertView show];
         }
         else {
+            NSError *err2;
+            NSArray *vals = [NSJSONSerialization JSONObjectWithData:returnedData options:NSJSONReadingMutableContainers error:&err2];
+            if(err2) {
+                UIAlertView *jsonErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error parsing JSON. Don't really know what to do here lol" delegate:nil cancelButtonTitle:@"I'll check SO" otherButtonTitles:nil];
+                [jsonErrorAlertView show];
+            }
+            else {
+                for(int i = 0; i < [vals count]; i++) {
+                    NSLog(@"%@", [vals objectAtIndex:i]);
+                }
+            }
         }
     }
     return self;
