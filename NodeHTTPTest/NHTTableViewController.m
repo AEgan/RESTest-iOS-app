@@ -22,35 +22,6 @@
         self.title = @"Messages";
         UIBarButtonItem *newMessageItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
         [self.navigationItem setRightBarButtonItem:newMessageItem];
-        self.dataArray = [[NSMutableArray alloc] initWithCapacity:4];
-        [self.dataArray insertObject:@"San Fransisco" atIndex:0];
-        [self.dataArray insertObject:@"Los Angeles" atIndex:1];
-        [self.dataArray insertObject:@"San Diego" atIndex:2];
-        [self.dataArray insertObject:@"San Jose" atIndex:3];
-        NSString *urlStr = @"http://localhost:12345/list";
-        NSURL *url = [NSURL URLWithString:urlStr];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPMethod:@"GET"];
-        NSError *err1;
-        NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
-        if(err1) {
-            UIAlertView *connectionErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error connecting to the server. Make sure it's running" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [connectionErrorAlertView show];
-        }
-        else {
-            NSError *err2;
-            NSArray *vals = [NSJSONSerialization JSONObjectWithData:returnedData options:NSJSONReadingMutableContainers error:&err2];
-            if(err2) {
-                UIAlertView *jsonErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error parsing JSON. Don't really know what to do here lol" delegate:nil cancelButtonTitle:@"I'll check SO" otherButtonTitles:nil];
-                [jsonErrorAlertView show];
-            }
-            else {
-                for(int i = 0; i < [vals count]; i++) {
-                    NSLog(@"%@", [vals objectAtIndex:i]);
-                }
-            }
-        }
     }
     return self;
 }
@@ -58,12 +29,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString *urlStr = @"http://localhost:12345/list";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"GET"];
+    NSError *err1;
+    NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
+    if(err1) {
+        UIAlertView *connectionErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error connecting to the server. Make sure it's running" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [connectionErrorAlertView show];
+    }
+    else {
+        NSError *err2;
+        NSArray *vals = [NSJSONSerialization JSONObjectWithData:returnedData options:NSJSONReadingMutableContainers error:&err2];
+        if(err2) {
+            UIAlertView *jsonErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error parsing JSON. Don't really know what to do here lol" delegate:nil cancelButtonTitle:@"I'll check SO" otherButtonTitles:nil];
+            [jsonErrorAlertView show];
+        }
+        else {
+            self.dataArray = [vals mutableCopy];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,7 +87,10 @@
     }
     
     // Configure the cell...
-    [cell.textLabel setText:[self.dataArray objectAtIndex:[indexPath row]]];
+    //[cell.textLabel setText:[self.dataArray objectAtIndex:[indexPath row]]];
+    NSString *author = [[self.dataArray objectAtIndex:[indexPath row]] valueForKey: @"author"];
+    NSString *message = [[self.dataArray objectAtIndex:[indexPath row]] valueForKey: @"message"];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@ :: %@", author, message]];
     return cell;
 }
 
