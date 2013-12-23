@@ -51,12 +51,42 @@
             self.dataArray = [vals mutableCopy];
         }
     }
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"here");
+    NSString *urlStr = @"http://localhost:12345/list";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"GET"];
+    NSError *err1;
+    NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
+    if(err1) {
+        UIAlertView *connectionErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error connecting to the server. Make sure it's running" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [connectionErrorAlertView show];
+    }
+    else {
+        NSError *err2;
+        NSArray *vals = [NSJSONSerialization JSONObjectWithData:returnedData options:NSJSONReadingMutableContainers error:&err2];
+        if(err2) {
+            UIAlertView *jsonErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error parsing JSON. Don't really know what to do here lol" delegate:nil cancelButtonTitle:@"I'll check SO" otherButtonTitles:nil];
+            [jsonErrorAlertView show];
+        }
+        else {
+            self.dataArray = [vals mutableCopy];
+        }
+    }
+    [self.tableView reloadData];
 }
 
 -(IBAction)pushMessageController:(id)sender {
