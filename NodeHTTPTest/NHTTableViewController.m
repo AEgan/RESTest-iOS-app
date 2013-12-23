@@ -96,14 +96,15 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     //[cell.textLabel setText:[self.dataArray objectAtIndex:[indexPath row]]];
     NSString *author = [[self.dataArray objectAtIndex:[indexPath row]] valueForKey: @"author"];
     NSString *message = [[self.dataArray objectAtIndex:[indexPath row]] valueForKey: @"message"];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@ :: %@", author, message]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", message]];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", author]];
     return cell;
 }
 
