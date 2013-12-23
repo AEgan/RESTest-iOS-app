@@ -14,5 +14,6 @@
 @property (strong, nonatomic) NSMutableArray *dataArray;
 
 -(IBAction)pushMessageController:(id)sender;
+-(void)makeGetRequest;
 
 @end
