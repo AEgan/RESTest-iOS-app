@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NHTMessageViewController.h"
+#import "NHTDetailViewController.h"
 
 @interface NHTTableViewController : UITableViewController
 
