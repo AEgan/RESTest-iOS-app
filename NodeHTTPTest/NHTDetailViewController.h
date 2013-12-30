@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSDictionary *message;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+- (IBAction)deletePressed:(id)sender;
 
 @end

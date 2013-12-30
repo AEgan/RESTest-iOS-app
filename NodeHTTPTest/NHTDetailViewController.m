@@ -38,4 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+ * what happenes when you press the delete button
+ */
+- (IBAction)deletePressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:@"here" delegate:nil cancelButtonTitle:@"good" otherButtonTitles:nil];
+    [alert show];
+}
 @end
