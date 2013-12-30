@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.authorLabel setText:[self.message objectForKey:@"author"]];
+    [self.messageLabel setText:[self.message objectForKey:@"message"]];
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -155,7 +155,8 @@
     // Navigation logic may go here, for example:
     // Create the next view controller.
     NHTDetailViewController *detailViewController = [[NHTDetailViewController alloc] initWithNibName:@"NHTDetailViewController" bundle:nil];
-
+    detailViewController.message = [self.dataArray objectAtIndex:[indexPath row]];
+    
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
