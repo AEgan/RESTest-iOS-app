@@ -42,7 +42,18 @@
  * what happenes when you press the delete button
  */
 - (IBAction)deletePressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:@"here" delegate:nil cancelButtonTitle:@"good" otherButtonTitles:nil];
-    [alert show];
+    NSString *urlString = [NSString stringWithFormat:@"http://localhost:12345/destroy?id=%@", [self.message objectForKey:@"_id"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"DELETE"];
+    NSError *err1;
+    NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
+    if(err1) {
+        UIAlertView *errorDeleteingAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error deleting this message" delegate:nil cancelButtonTitle:@"damn" otherButtonTitles:nil];
+        [errorDeleteingAlertView show];
+    }
+    else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 @end
