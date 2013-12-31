@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "NHTEditViewController.h"
 
 @interface NHTDetailViewController : UIViewController
 
@@ -14,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 - (IBAction)deletePressed:(id)sender;
+-(IBAction)pushMessageController:(id)sender;
 
 @end

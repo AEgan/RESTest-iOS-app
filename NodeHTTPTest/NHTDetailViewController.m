@@ -20,6 +20,8 @@
     if (self) {
         // Custom initialization
         self.title = @"Details";
+        UIBarButtonItem *editMessageButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
+        [self.navigationItem setRightBarButtonItem:editMessageButton];
     }
     return self;
 }
@@ -55,5 +57,10 @@
     else {
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+-(IBAction)pushMessageController:(id)sender {
+    NHTEditViewController *editController = [[NHTEditViewController alloc] initWithNibName:@"NHTEditViewController" bundle:nil];
+    [self.navigationController pushViewController:editController animated:YES];
 }
 @end
