@@ -61,6 +61,7 @@
 
 -(IBAction)pushMessageController:(id)sender {
     NHTEditViewController *editController = [[NHTEditViewController alloc] initWithNibName:@"NHTEditViewController" bundle:nil];
+    editController.message = self.message;
     [self.navigationController pushViewController:editController animated:YES];
 }
 @end

@@ -11,7 +11,7 @@
 @interface NHTEditViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *messageField;
 @property (weak, nonatomic) IBOutlet UITextField *authorField;
-@property (strong, nonatomic) NSDictionary *message;
+@property (weak, nonatomic) NSDictionary *message;
 - (IBAction)submitPressed:(id)sender;
 
 @end

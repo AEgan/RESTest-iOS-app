@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     self.title = @"Editing Message";
+    [self.authorField setText:[self.message valueForKey:@"author"]];
+    [self.messageField setText:[self.message valueForKey:@"message"]];
     // Do any additional setup after loading the view from its nib.
 }
 
