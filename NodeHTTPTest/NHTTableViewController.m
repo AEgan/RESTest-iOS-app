@@ -22,6 +22,8 @@
         self.title = @"Messages";
         UIBarButtonItem *newMessageItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(pushMessageController:)];
         [self.navigationItem setRightBarButtonItem:newMessageItem];
+        UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStyleBordered target:self action:@selector(reloadTable)];
+        [self.navigationItem setLeftBarButtonItem:reloadItem];
     }
     return self;
 }
@@ -72,10 +74,16 @@
     }
 }
 
+-(void)reloadTable {
+    [self makeGetRequest];
+    [self.tableView reloadData];
+}
+
 -(IBAction)pushMessageController:(id)sender {
     NHTMessageViewController *messageView = [[NHTMessageViewController alloc] initWithNibName:@"NHTMessageViewController" bundle:nil];
     [self.navigationController pushViewController:messageView animated:YES];
 }
+
 
 #pragma mark - Table view data source
 

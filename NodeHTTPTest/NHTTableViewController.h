@@ -16,5 +16,5 @@
 
 -(IBAction)pushMessageController:(id)sender;
 -(void)makeGetRequest;
-
+-(void)reloadTable;
 @end
