@@ -46,21 +46,21 @@
 }
 
 - (IBAction)submitPressed:(id)sender {
-//    NSString *authorString = [self.authorField text];
-//    NSString *messageString = [self.messageField text];
-//    NSString *fixedStr = [messageString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-//    NSString *urlStr = [NSString stringWithFormat:@"http://localhost:12345?author=%@&message=%@", authorString, fixedStr];
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setHTTPMethod:@"POST"];
-//    NSError *err1;
-//    NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
-//    if(err1){
-//        UIAlertView *connectionAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to connect to API. Check that the server is running" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-//        [connectionAlert show];
-//    }
-//    else {
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
+    NSString *authorString = [self.authorField text];
+    NSString *messageString = [self.messageField text];
+    NSString *fixedStr = [messageString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://localhost:12345/post?author=%@&message=%@", authorString, fixedStr];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    NSError *err1;
+    NSData *returnedData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err1];
+    if(err1){
+        UIAlertView *connectionAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to connect to API. Check that the server is running" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        [connectionAlert show];
+    }
+    else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 @end
