@@ -48,8 +48,9 @@
 - (IBAction)submitPressed:(id)sender {
     NSString *authorString = [self.authorField text];
     NSString *messageString = [self.messageField text];
+    NSString *idStr = [self.message objectForKey:@"_id"];
     NSString *fixedStr = [messageString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    NSString *urlStr = [NSString stringWithFormat:@"http://localhost:12345/post?author=%@&message=%@", authorString, fixedStr];
+    NSString *urlStr = [NSString stringWithFormat:@"http://localhost:12345/post?id=%@&author=%@&message=%@", idStr,authorString, fixedStr];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
